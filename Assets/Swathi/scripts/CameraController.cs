@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     public Vector3 offset;
 
     private Vector3 _velocity = Vector3.zero;
-    private PlayerController _player;
+    private iso2dplayer _player;
 
     public float limitLeft, limitRight, limitBottom, limitTop;
 
