@@ -8,6 +8,7 @@ public class MapHolder : MonoBehaviour
 
     private void Awake()
     {
+       
         if (instance == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -15,8 +16,6 @@ public class MapHolder : MonoBehaviour
         }
         else if(instance != this)
         {
-            Destroy(instance.gameObject);
-            instance = this;
             Destroy(gameObject);
         }
     }

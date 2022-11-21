@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public CameraController camera;
+    private bool awake = false;
     
     private void Awake()
     {
+        
         if (instance == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -22,16 +24,22 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
 
     private void Start()
     {
-       
+        
     }
 
   
     private void Update()
     {
+        if (awake == false)
+        {
+            Fungus.Flowchart.BroadcastFungusMessage("Restart");
+            awake = true;
+        }
         if (Input.GetKeyDown(KeyCode.F1))
         {
             camera.enabled = false;
@@ -42,5 +50,6 @@ public class GameManager : MonoBehaviour
     {
         camera.enabled = true;
         Debug.Log("Event");
+        awake = false;
     }
 }
