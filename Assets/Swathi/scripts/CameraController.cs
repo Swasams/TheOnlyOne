@@ -7,11 +7,27 @@ public class CameraController : MonoBehaviour
     public Transform target;
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
+    private GameObject follow;
 
     private Vector3 _velocity = Vector3.zero;
     private iso2dplayer _player;
 
     public float limitLeft, limitRight, limitBottom, limitTop;
+    public static CameraController instance;
+
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +35,7 @@ public class CameraController : MonoBehaviour
         if (target == null)
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
+            follow = this.GetComponent<GameObject>();
         }
     }
 
@@ -34,4 +51,5 @@ public class CameraController : MonoBehaviour
         transform.position = new Vector3(Mathf.Clamp(smoothedPosition.x, limitLeft, limitRight), Mathf.Clamp(smoothedPosition.y, limitBottom, limitTop), smoothedPosition.z);
         transform.position = new Vector3(transform.position.x, transform.position.y, -1f);
     }
+
 }
