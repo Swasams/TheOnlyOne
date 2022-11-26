@@ -48,6 +48,7 @@ public class NPCMover : MonoBehaviour
                     {
                         isWalking = false;
                         waitcounter = WaitTime;
+                        //transform.rotation = Quaternion.Euler(0, 0, 0);
                     }
                     break;
                 case 1:
@@ -57,6 +58,7 @@ public class NPCMover : MonoBehaviour
                         isWalking = false;
                         waitcounter = WaitTime;
                     }
+                   // transform.rotation = Quaternion.Euler(0, -90, 10);
                     break;
                     
                 case 2:
@@ -65,7 +67,9 @@ public class NPCMover : MonoBehaviour
                     {
                         isWalking = false;
                         waitcounter = WaitTime;
+                        
                     }
+                  //  transform.rotation = Quaternion.Euler(0, 0, 0);
                     break;
                 case 3:
                     MyRB.velocity = new Vector2(moveSpeed, - moveSpeed);
@@ -74,6 +78,7 @@ public class NPCMover : MonoBehaviour
                         isWalking = false;
                         waitcounter = WaitTime;
                     }
+                   // transform.rotation = Quaternion.Euler(0, 45, -10);
                     break;
                 case 4:
                     MyRB.velocity = new Vector2(0, -moveSpeed);
@@ -82,6 +87,7 @@ public class NPCMover : MonoBehaviour
                         isWalking = false;
                         waitcounter = WaitTime;
                     }
+                   // transform.rotation = Quaternion.Euler(0, 0, 0);
                     break;
                 case 5:
                     MyRB.velocity = new Vector2(-moveSpeed, -moveSpeed);
@@ -90,6 +96,7 @@ public class NPCMover : MonoBehaviour
                         isWalking = false;
                         waitcounter = WaitTime;
                     }
+                   // transform.rotation = Quaternion.Euler(0, -90, 10);
                     break;
                 case 6:
                     MyRB.velocity = new Vector2(-moveSpeed, 0);
@@ -98,6 +105,7 @@ public class NPCMover : MonoBehaviour
                         isWalking = false;
                         waitcounter = WaitTime;
                     }
+                   // transform.rotation = Quaternion.Euler(0, 0, 0);
                     break;
                 case 7:
                     MyRB.velocity = new Vector2(-moveSpeed, moveSpeed);
@@ -106,6 +114,7 @@ public class NPCMover : MonoBehaviour
                         isWalking = false;
                         waitcounter = WaitTime;
                     }
+                   // transform.rotation = Quaternion.Euler(0, 45, -10);
                     break;
 
             }
