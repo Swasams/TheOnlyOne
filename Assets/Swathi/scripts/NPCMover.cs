@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class NPCMover : MonoBehaviour
 {
-    public float moveSpeed;
+    private float moveSpeed;
     private Rigidbody2D MyRB;
     public bool isWalking;
-    public float walkTime;
-    public float WaitTime;
+    private float walkTime;
+    private float WaitTime;
     private float Walkcounter;
     private float waitcounter;
     private int walkdirection;
+    bool NPCcollision;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,11 @@ public class NPCMover : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+
     {
+        moveSpeed = Random.Range(0, 3);
+        walkTime = Random.Range(0, 5);
+        WaitTime = Random.Range(0, 5);
         if (isWalking)
         {
             Walkcounter -= Time.deltaTime;
@@ -85,5 +90,27 @@ public class NPCMover : MonoBehaviour
         Walkcounter = walkTime;
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "NPC")
+        {
+            Debug.Log("NPC");
+            NPCcollision= true; //we only move if !collidedWithPlayer
+            isWalking = false;
+            MyRB.velocity = new Vector2(0, 0);//stop moving
+                                              //turn NPC into "wall"
 
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "NPC")
+        {
+            NPCcollision = false; //we only move if !collidedWithPlayer
+            isWalking = true; //stop moving
+            MyRB.velocity = new Vector2(0, 0);
+
+        }
+    }
 }
