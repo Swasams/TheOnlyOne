@@ -18,14 +18,14 @@ public class orderer : MonoBehaviour
         if (Player.transform.position.y <= this.transform.position.y)
         {
             {
-                Debug.Log("back");
+               // Debug.Log("back");
                 rendy.sortingOrder = (int)(-this.transform.position.y * 100);
             }
             
         }
         if (Player.transform.position.y > this.transform.position.y)
         {
-            Debug.Log("front");
+            //Debug.Log("front");
             rendy.sortingOrder = (int)(100);
         }
     }
