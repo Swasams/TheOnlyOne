@@ -13,6 +13,8 @@ public class NPCMover : MonoBehaviour
     private float waitcounter;
     private int walkdirection;
     bool NPCcollision;
+    public Collider2D Walkzone;
+    private Vector2 MinWalk, Maxwalk; 
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,8 @@ public class NPCMover : MonoBehaviour
         Walkcounter = walkTime;
 
         ChooseDirection();
+        MinWalk = Walkzone.bounds.min;
+        Maxwalk = Walkzone.bounds.max;
     }
 
     // Update is called once per frame
@@ -40,27 +44,68 @@ public class NPCMover : MonoBehaviour
             {
                 case 0:
                     MyRB.velocity = new Vector2(0, moveSpeed);
+                    if (transform.position.y > Maxwalk.y)
+                    {
+                        isWalking = false;
+                        waitcounter = WaitTime;
+                    }
                     break;
                 case 1:
                     MyRB.velocity = new Vector2(moveSpeed, moveSpeed);
+                    if (transform.position.y > Maxwalk.y || transform.position.y > Maxwalk.x)
+                    {
+                        isWalking = false;
+                        waitcounter = WaitTime;
+                    }
                     break;
+                    
                 case 2:
                     MyRB.velocity = new Vector2(moveSpeed, 0);
+                    if (transform.position.y > Maxwalk.x)
+                    {
+                        isWalking = false;
+                        waitcounter = WaitTime;
+                    }
                     break;
                 case 3:
                     MyRB.velocity = new Vector2(moveSpeed, - moveSpeed);
+                    if (transform.position.y > Maxwalk.x || transform.position.y < Maxwalk.y)
+                    {
+                        isWalking = false;
+                        waitcounter = WaitTime;
+                    }
                     break;
                 case 4:
                     MyRB.velocity = new Vector2(0, -moveSpeed);
+                    if (transform.position.y < Maxwalk.y)
+                    {
+                        isWalking = false;
+                        waitcounter = WaitTime;
+                    }
                     break;
                 case 5:
                     MyRB.velocity = new Vector2(-moveSpeed, -moveSpeed);
+                    if (transform.position.y < Maxwalk.x || transform.position.y < Maxwalk.y)
+                    {
+                        isWalking = false;
+                        waitcounter = WaitTime;
+                    }
                     break;
                 case 6:
                     MyRB.velocity = new Vector2(-moveSpeed, 0);
+                    if (transform.position.y < Maxwalk.x )
+                    {
+                        isWalking = false;
+                        waitcounter = WaitTime;
+                    }
                     break;
                 case 7:
                     MyRB.velocity = new Vector2(-moveSpeed, moveSpeed);
+                    if (transform.position.y < Maxwalk.x || transform.position.y > Maxwalk.y)
+                    {
+                        isWalking = false;
+                        waitcounter = WaitTime;
+                    }
                     break;
 
             }
@@ -94,7 +139,7 @@ public class NPCMover : MonoBehaviour
     {
         if (other.gameObject.tag == "NPC")
         {
-            Debug.Log("NPC");
+          
             NPCcollision= true; //we only move if !collidedWithPlayer
             isWalking = false;
             MyRB.velocity = new Vector2(0, 0);//stop moving

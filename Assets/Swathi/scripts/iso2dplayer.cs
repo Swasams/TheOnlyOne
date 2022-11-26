@@ -8,7 +8,13 @@ public class iso2dplayer : MonoBehaviour
     private float moveH, moveV;
     [SerializeField] private float moveSpeed = 1.0f;
     public static iso2dplayer instance;
+    public bool iswalking;
+    
 
+    void Start()
+    {
+       
+    }
     private void Awake()
     {
         if (instance == null)
@@ -32,6 +38,9 @@ public class iso2dplayer : MonoBehaviour
 
         Vector2 direction = new Vector2(moveH, moveV);
 
+        
+
         FindObjectOfType<isocharacterrenderer>().SetDirection(direction);
     }
+   
 }
