@@ -13,7 +13,7 @@ public class iso2dplayer : MonoBehaviour
 
     void Start()
     {
-       
+        this.transform.position = new Vector2(0, 0);
     }
     private void Awake()
     {
