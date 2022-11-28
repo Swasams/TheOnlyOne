@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     private void Awake()
     {
-        
+
         if (instance == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -24,15 +24,15 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
     }
 
     private void Start()
     {
-        
+
     }
 
-  
+
     private void Update()
     {
         if (awake == false)
@@ -52,5 +52,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Event");
         awake = false;
     }
-    
-}
+    public void Reset() {
+        //Debug.Log("Running");
+        player.transform.position = new Vector2(0, 0);
+} }
