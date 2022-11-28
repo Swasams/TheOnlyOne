@@ -13,7 +13,7 @@ public class iso2dplayer : MonoBehaviour
 
     void Start()
     {
-        this.transform.position = new Vector2(0, 0);
+        //this.transform.position = new Vector2(11, -16);
     }
     private void Awake()
     {
@@ -21,6 +21,7 @@ public class iso2dplayer : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
             instance = this;
+           // this.transform.position = new Vector2(-43, -41);
         }
         else
         {

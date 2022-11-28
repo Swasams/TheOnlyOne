@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public CameraController camera;
     private bool awake = false;
-    
+    public GameObject player;
     private void Awake()
     {
         
@@ -52,4 +52,5 @@ public class GameManager : MonoBehaviour
         Debug.Log("Event");
         awake = false;
     }
+    
 }

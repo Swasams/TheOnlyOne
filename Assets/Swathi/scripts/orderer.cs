@@ -15,11 +15,14 @@ public class orderer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Player.transform.position.y <= this.transform.position.y)
+        GameObject.FindGameObjectWithTag("PlayerSprite");
+        rendy.sortingOrder = (int)(-this.transform.position.y * 100);
+    }
+       /* if (Player.transform.position.y <= this.transform.position.y)
         {
             {
                // Debug.Log("back");
-                rendy.sortingOrder = (int)(-this.transform.position.y * 100);
+               
             }
             
         }
@@ -28,5 +31,5 @@ public class orderer : MonoBehaviour
             //Debug.Log("front");
             rendy.sortingOrder = (int)(100);
         }
-    }
+    }*/
 }
