@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Swathi/Scenes/Entrance.unity
-    guid: a27f155113fbb0f4188d606ec77db431
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Swathi/Scenes/Attractions.unity
     guid: 105ff60696d87e4478a2e0eb9ce4287f
@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Swathi/Scenes/wheel.unity
     guid: 96affdc9c36cb4542a12ffbda4fd9c83
+  - enabled: 1
+    path: Assets/Swathi/Scenes/Green.unity
+    guid: 4fde4546f78dd7941a98b004da7dbed9
+  - enabled: 1
+    path: Assets/Swathi/Scenes/Entrance.unity
+    guid: d1b3557d1fd116e418e97d3110da5589
+  - enabled: 1
+    path: Assets/Swathi/Scenes/TitleCard.unity
+    guid: be6d219e2147ad04a9b40e187b44063d
   m_configObjects: {}
