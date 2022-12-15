@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
             Fungus.Flowchart.BroadcastFungusMessage("Restart");
             awake = true;
         }
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             camera.enabled = false;
         }
