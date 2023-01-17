@@ -7,11 +7,12 @@ TagManager:
   - NPC
   - PlayerSprite
   - boundry
+  - ExcludeCamera
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PhaoLight
   - Water
   - UI
   - 
